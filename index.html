@@ -300,12 +300,7 @@ body:not([data-view="home"]) .scrim{opacity:1}
     }
   })();
 
-  // Hovering (or tabbing to) a menu item previews its zoom; leaving goes back
-  links.forEach(function (a) {
-    var id = a.getAttribute("href").slice(1);
-    ["mouseenter", "focus"].forEach(function (e) { a.addEventListener(e, function () { camera(id); }); });
-    ["mouseleave", "blur"].forEach(function (e) { a.addEventListener(e, function () { camera(current); }); });
-  });
+  // The camera moves only when a section is opened (click), not on hover
   window.addEventListener("hashchange", show);
   show();
 </script>
