@@ -50,6 +50,20 @@ p{margin:0 0 1.1rem;max-width:62ch}
 .links{list-style:none;padding:0;margin:0}
 .links li{margin-bottom:.8rem}
 footer{position:relative;z-index:2;margin-left:280px;color:var(--soft);font-size:.9rem;padding:1rem clamp(1.2rem,5vw,4rem) 2rem}
+/* ---------- Research: expandable project boxes ---------- */
+.proj{border:1px solid var(--line);border-radius:4px;margin-bottom:1rem;background:color-mix(in srgb,var(--paper) 80%,transparent)}
+.proj>summary{cursor:pointer;list-style:none;display:flex;gap:.7rem;align-items:baseline;padding:1rem 1.2rem;font-weight:600;color:var(--accent)}
+.proj>summary::-webkit-details-marker{display:none}
+.proj>summary::before{content:"\25B8";flex:none;font-size:.9em;transition:transform .2s}
+.proj[open]>summary::before{transform:rotate(90deg)}
+.proj>summary:hover{color:var(--ink)}
+.proj>summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.proj-body{padding:0 1.4rem 1.4rem}
+.proj-body h3{font-family:var(--serif);font-weight:700;font-size:1.35rem;line-height:1.2;margin:1.9rem 0 .9rem}
+.fig{margin:0 0 1.2rem}
+.fig img,.fig-ph{display:block;max-width:100%;border-radius:2px}
+.fig-ph{border:1px dashed var(--line);padding:2.4rem 1rem;text-align:center;color:var(--soft);font-size:.95rem}
+.fig figcaption{font-style:italic;color:var(--soft);font-size:.95rem;margin-top:.6rem;max-width:62ch}
 html:not(.js) .view{display:block}html:not(.js) .hero.view{display:flex}
 
 /* ---------- The AGN: a fixed backdrop that acts as a camera ---------- */
@@ -179,7 +193,7 @@ body:not([data-view="home"]) .scrim{opacity:1}
   <nav aria-label="Main">
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#archive">Archive</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -193,7 +207,7 @@ body:not([data-view="home"]) .scrim{opacity:1}
     <img class="photo" src="images/headshot.jpeg" alt="Portrait of Enathian Ferrada">
     <h1>Enathian Ferrada</h1>
     <p class="role">Astrophysicist · Universidad Técnica Federico Santa María</p>
-    <p class="lead">My field of study is based on the characterization of cold molecular gas content and kinematics in nearby active galactic nuclei (AGN) with ionized outflows.</p>
+    <p class="lead">I study the cold molecular gas in galaxies with active nuclei (AGN) and how it relates to their ionised outflows.</p>
     <div class="actions">
       <a class="btn main" href="#research">See my research</a>
       <a class="btn" href="images/Academic_Curriculum_Vitae.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
@@ -204,23 +218,52 @@ body:not([data-view="home"]) .scrim{opacity:1}
 <!-- ABOUT -->
 <main id="about" class="page view">
   <h2>About me</h2>
-  <p><span class="term">Education.</span> I obtained my Bachelors degree in Astrophysics and am currently postulating for a position in the Doctorate program in Physical Sciences from Universidad Técnica Federico Santa María.</p>
+  <p><span class="term">Education.</span> Undergraduate student at Universidad Técnica Federico Santa María. I study the cold molecular gas content and host galaxy properties of nearby X-ray AGN with ionised outflows, focusing on the morphology and kinematics of these galaxies.</p>
+  <p><span class="term">Research interests.</span> My work deals mainly with the molecular gas content of Active Galactic Nuclei (AGN).</p>
   <p>You can find all my publications on <a href="https://ui.adsabs.harvard.edu/">ADS</a>.</p>
 </main>
 
 <!-- RESEARCH -->
 <main id="research" class="page view">
   <h2>Research</h2>
-  <p>I study the cold molecular gas content and host galaxy properties of nearby X-ray selected AGN with ionised outflows by analysing the CO(2-1) emission lines with ALMA observations, focusing on the morphology and kinematics of these galaxies. Some specific topics include calculating the total molecular gas mass using multi-Gaussian fitting to emission lines, computing radial profiles to comprehend the extent of the cold molecular gas reservoirs in the host galaxy, and the detection and characterization of molecular outflows through 3-dimentional kinematic modeling.</p>
-  <!-- Duplicate a "project" block for each new project -->
-  <div class="project">
-    <h3>BASS-MUSE-ALMA Survey I: Cold Molecular Gas Content of Nearby X-ray AGN with Ionised Outflows.</h3>
-    <p>Rojas et al. (in prep). We characterize the cold molecular gas content in selected AGN with ionised outflows.</p>
-  </div>
-  <div class="project">
-    <h3>BASS-MUSE-ALMA Survey II: On the Nature of Cold Molecular Gas Kinematics and Outflows.</h3>
-    <p>Ferrada et al. (in prep.). We use 3D kinematic modeling to estimate molecular outflow velocities and locations.</p>
-  </div>
+  <p>I study the cold molecular gas content and host galaxy properties of nearby X-ray selected AGN with ionised outflows by analysing the CO(2-1) emission lines with ALMA observations, focusing on the morphology and kinematics of these galaxies. Some specific topics include calculating the total molecular gas mass using multi-Gaussian fitting to emission lines, computing radial profiles to comprehend the extent of the cold molecular gas reservoirs in the host galaxy, and the detection and characterization of molecular outflows through 3-dimensional kinematic modeling.</p>
+  <p>Below, I highlight some of the projects I am working on. Click a title to open it.</p>
+
+  <!-- Duplicate a "details" block for each new project. Remove the word "open" to start it collapsed. -->
+  <details class="proj" open>
+    <summary>BASS-MUSE-ALMA Survey I: Cold Molecular Gas Content of Nearby X-ray AGN with Ionised Outflows</summary>
+    <div class="proj-body">
+      <p>Rojas et al. (in prep). We characterize the cold molecular gas content in selected AGN with ionised outflows.</p>
+
+      <h3>Total molecular gas mass</h3>
+      <figure class="fig">
+        <div class="fig-ph">Figure placeholder. Add your image as <code>images/gas-mass.png</code></div>
+        <!-- Replace the placeholder above with: <img src="images/gas-mass.png" alt="Describe the figure"> -->
+        <figcaption>Caption: describe the multi-Gaussian fits to the CO(2-1) lines and what they show. Link the paper or poster here.</figcaption>
+      </figure>
+
+      <h3>Spatial extent of the cold gas</h3>
+      <figure class="fig">
+        <div class="fig-ph">Figure placeholder. Add your image as <code>images/radial-profiles.png</code></div>
+        <!-- Replace the placeholder above with: <img src="images/radial-profiles.png" alt="Describe the figure"> -->
+        <figcaption>Caption: describe the radial profiles and the extent of the molecular gas reservoirs.</figcaption>
+      </figure>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary>BASS-MUSE-ALMA Survey II: On the Nature of Cold Molecular Gas Kinematics and Outflows</summary>
+    <div class="proj-body">
+      <p>Ferrada et al. (in prep.). We use 3D kinematic modeling to estimate molecular outflow velocities and locations.</p>
+
+      <h3>Molecular outflows from 3D kinematic modeling</h3>
+      <figure class="fig">
+        <div class="fig-ph">Figure placeholder. Add your image as <code>images/kinematic-model.png</code></div>
+        <!-- Replace the placeholder above with: <img src="images/kinematic-model.png" alt="Describe the figure"> -->
+        <figcaption>Caption: describe the kinematic model, the outflow velocities and where the outflows are located.</figcaption>
+      </figure>
+    </div>
+  </details>
 </main>
 
 <!-- ARCHIVE -->
